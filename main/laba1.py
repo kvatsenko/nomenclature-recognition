@@ -354,7 +354,7 @@ def visualize_atoms_with_bonds(atoms_data, bond_matrix, recognized_atoms):
 ############################################################
 if __name__ == "__main__":
 
-    xyz_file = "/Users/kirill-vatsenko/Projects/VOYTA/25year/5_r9_xyz_dftV3#r9_085_DaabB.xyz"
+    xyz_file = "main/5_r9_xyz_dftV3#r9_085_DaabB.xyz"
     atoms_data = read_xyz_file(xyz_file)
     dist_matrix = build_distance_matrix(atoms_data)
     
@@ -368,7 +368,6 @@ if __name__ == "__main__":
     bond_matrix = filter_covalent_bonds(dist_matrix, atoms_data, covalent_radii, tolerance=0.1)
     recognized_atoms = analyze_bond_matrix(bond_matrix, atoms_data) 
     visualize_atoms_with_bonds(atoms_data, bond_matrix, recognized_atoms)
-    
     with open("output.pdb", "w") as pdb:
         for atom in recognized_atoms:
             pdb.write(
